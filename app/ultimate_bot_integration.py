@@ -16,6 +16,7 @@ from app.modules.advanced_analytics import AdvancedAnalyticsSystem
 from app.modules.crypto_trading_system import CryptoTradingSystem
 from app.modules.random_messages_system import RandomMessagesSystem
 from app.modules.ultimate_database_system import UltimateDatabaseSystem
+from app.modules.custom_personality_system import CustomPersonalityManager
 
 logger = logging.getLogger(__name__)
 
