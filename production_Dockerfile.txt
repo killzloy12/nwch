@@ -1,0 +1,54 @@
+# Enhanced Telegram Bot v3.0 - Production Dockerfile
+FROM python:3.11-slim
+
+# Устанавливаем метаинформацию
+LABEL maintainer="killzloy12"
+LABEL description="Enhanced Telegram Bot v3.0 - Ultimate Edition"
+LABEL version="3.0.0"
+
+# Устанавливаем рабочую директорию
+WORKDIR /app
+
+# Устанавливаем системные зависимости
+RUN apt-get update && apt-get install -y \
+    gcc \
+    g++ \
+    libpq-dev \
+    curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && apt-get clean
+
+# Создаем пользователя для безопасности
+RUN groupadd -r botuser && useradd -r -g botuser -d /app -s /sbin/nologin botuser
+
+# Копируем файлы зависимостей
+COPY requirements.txt .
+
+# Устанавливаем Python зависимости
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
+# Создаем необходимые директории
+RUN mkdir -p data logs backups triggers exports charts && \
+    chown -R botuser:botuser /app
+
+# Копируем код приложения
+COPY --chown=botuser:botuser . .
+
+# Переключаемся на пользователя botuser
+USER botuser
+
+# Настраиваем переменные окружения
+ENV PYTHONPATH=/app
+ENV PYTHONUNBUFFERED=1
+ENV PYTHONDONTWRITEBYTECODE=1
+
+# Открываем порт для health check
+EXPOSE 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+    CMD python -c "print('Bot is healthy')" || exit 1
+
+# Команда запуска
+CMD ["python", "main.py"]

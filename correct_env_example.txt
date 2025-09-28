@@ -1,0 +1,62 @@
+# ==============================================
+# Enhanced Telegram Bot v3.0 - Конфигурация
+# ==============================================
+
+# ОСНОВНЫЕ НАСТРОЙКИ (обязательно)
+# ================================
+BOT_TOKEN=your_bot_token_from_botfather
+ADMIN_IDS=123456789,987654321
+
+# БАЗА ДАННЫХ
+# ============
+DATABASE_URL=sqlite:///data/bot.db
+
+# AI СЕРВИСЫ (опционально)
+# ========================
+OPENAI_API_KEY=your_openai_api_key
+ANTHROPIC_API_KEY=your_anthropic_api_key
+AI_DEFAULT_MODEL=gpt-4o-mini
+AI_DAILY_LIMIT=1000
+AI_USER_LIMIT=50
+
+# КРИПТОВАЛЮТНЫЕ API (опционально)
+# ================================
+COINGECKO_API_KEY=your_coingecko_api_key
+
+# ФУНКЦИОНАЛЬНОСТЬ
+# ================
+SMART_RESPONSES=true
+MENTION_RESPONSES=true
+REPLY_RESPONSES=true
+TRIGGERS_ENABLED=true
+PERMISSIONS_ENABLED=true
+RANDOM_REPLY_CHANCE=0.05
+
+# МОДЕРАЦИЯ
+# =========
+AUTO_MODERATION=true
+TOXICITY_THRESHOLD=0.8
+MAX_WARNINGS=3
+DELETE_SPAM=true
+MUTE_DURATION_MINUTES=30
+
+# ЛИМИТЫ И ОГРАНИЧЕНИЯ
+# ====================
+MAX_TRIGGERS_PER_USER=10
+MAX_TRIGGERS_PER_ADMIN=100
+ALLOW_REGEX_TRIGGERS=true
+TRIGGER_COOLDOWN_SECONDS=1
+MESSAGE_RATE_LIMIT=30
+RATE_LIMIT_WINDOW=60
+
+# БЕЗОПАСНОСТЬ
+# ============
+USE_WHITELIST=false
+LOG_LEVEL=INFO
+ENABLE_SECURITY_LOGS=true
+
+# ДОПОЛНИТЕЛЬНЫЕ НАСТРОЙКИ
+# ========================
+TIMEZONE=Europe/Moscow
+LANGUAGE=ru
+DEBUG=false

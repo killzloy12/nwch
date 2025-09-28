@@ -1,0 +1,87 @@
+# =================================================================
+# Enhanced Telegram Bot v3.0 - Production Configuration Template
+# =================================================================
+
+# ОБЯЗАТЕЛЬНЫЕ НАСТРОЙКИ
+# ======================
+
+# Токен бота от @BotFather (обязательно!)
+BOT_TOKEN=your_bot_token_from_botfather
+
+# ID администраторов через запятую (обязательно!)
+# Найти свой ID можно у @userinfobot
+ADMIN_IDS=123456789,987654321
+
+# ОПЦИОНАЛЬНЫЕ AI ИНТЕГРАЦИИ
+# ===========================
+
+# OpenAI API Key для GPT-4 интеграции
+# Получить на: https://platform.openai.com/api-keys
+OPENAI_API_KEY=your_openai_api_key_here
+
+# Anthropic API Key для Claude интеграции  
+# Получить на: https://console.anthropic.com/
+ANTHROPIC_API_KEY=your_anthropic_api_key_here
+
+# Модель по умолчанию
+AI_DEFAULT_MODEL=gpt-4o-mini
+
+# ОСНОВНЫЕ ФУНКЦИИ
+# ================
+
+# Включить умные ответы (true/false)
+SMART_RESPONSES=true
+
+# Включить систему триггеров (true/false)
+TRIGGERS_ENABLED=true
+
+# Включить автоматическую модерацию (true/false)
+AUTO_MODERATION=true
+
+# Ответы на упоминания @bot (true/false)
+MENTION_RESPONSES=true
+
+# Ответы на reply сообщения (true/false)
+REPLY_RESPONSES=true
+
+# Включить управление доступом (true/false)
+PERMISSIONS_ENABLED=true
+
+# ЛИМИТЫ И ОГРАНИЧЕНИЯ
+# ====================
+
+# Лимит AI запросов в день
+AI_DAILY_LIMIT=1000
+
+# Лимит AI запросов на пользователя в день
+AI_USER_LIMIT=50
+
+# Максимум триггеров для обычного пользователя
+MAX_TRIGGERS_PER_USER=10
+
+# Максимум триггеров для администратора
+MAX_TRIGGERS_PER_ADMIN=100
+
+# Разрешить regex триггеры (true/false)
+ALLOW_REGEX_TRIGGERS=true
+
+# Кулдаун между срабатываниями триггеров (секунды)
+TRIGGER_COOLDOWN_SECONDS=1
+
+# МОДЕРАЦИЯ
+# =========
+
+# Порог токсичности для автоудаления (0.0-1.0)
+TOXICITY_THRESHOLD=0.8
+
+# Максимум предупреждений перед баном
+MAX_WARNINGS=3
+
+# Автоматически удалять спам (true/false)
+DELETE_SPAM=true
+
+# Длительность мута в минутах
+MUTE_DURATION_MINUTES=30
+
+# БЕЗОПАСНОСТЬ
+# ========

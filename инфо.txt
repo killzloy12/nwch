@@ -1,0 +1,44 @@
+anh/
+│
+├── .env                             # Файл переменных окружения
+├── main.py                          # Точка входа бота
+├── production_Dockerfile.txt        # Dockerfile для продакшена
+├── production_docker_compose.yml    # docker-compose для продакшена
+├── production_env_example.txt       # Пример .env для продакшена
+├── production_requirements.txt      # Зависимости для продакшена
+│
+├── data/                            # Данные и конфигурации
+│   ├── database.sqlite              # SQLite база данных (создаётся автоматически)
+│   ├── karma.json                   # Хранение кармы
+│   ├── personas.json                # Хранение персонажей
+│   ├── trigger_words.json           # Пользовательские слова призыва
+│   └── logs/
+│       └── bot.log                  # Логи бота
+│
+├── app/
+│   ├── handlers/
+│   │   └── handlers_v3_fixed.py     # Обработчики Telegram-команд с полной логикой
+│   │
+│   ├── modules/                     # Дополнительные модули бизнес-логики
+│   │   ├── adaptive_ai_learning.py
+│   │   ├── advanced_analytics.py
+│   │   ├── advanced_moderation.py
+│   │   ├── aentertainment_commands.py
+│   │   ├── crypto_trading_system.py
+│   │   ├── custom_personality_system.py
+│   │   ├── custom_personality_system_v3.2.py
+│   │   ├── custom_wake_words.py
+│   │   ├── entertainment_commands.py
+│   │   ├── karma_system.py
+│   │   ├── random_messages_system.py
+│   │   ├── ultimate_database_system.py
+│   │   └── ultimate_triggers.py
+│   │
+│   ├── services/
+│   │   ├── ai_service.py
+│   │   └── human_ai_service.py
+│   │
+│   └── ultimate_bot_integration.py   # Интеграция инициализации всех систем
+│
+├── config.py                        # Файл конфигурации бота
+└── venv/                            # Виртуальное окружение Python

@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  telegram_bot:
+    build: .
+    container_name: enhanced_telegram_bot
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMIN_IDS=${ADMIN_IDS}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DATABASE_URL=sqlite:///data/bot.db
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - bot_network
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # Опционально: PostgreSQL для продакшена
+  postgres:
+    image: postgres:15-alpine
+    container_name: bot_postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: telegram_bot
+      POSTGRES_USER: bot_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - bot_network
+    ports:
+      - "5432:5432"
+
+  # Опционально: Redis для кэширования
+  redis:
+    image: redis:7-alpine
+    container_name: bot_redis
+    restart: unless-stopped
+    networks:
+      - bot_network
+    ports:
+      - "6379:6379"
+
+networks:
+  bot_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
